@@ -38,7 +38,7 @@ max_damage = df.loc[df['Damage'].idxmax()]
 # Configurar Streamlit
 st.set_page_config(page_title="Dashboard Terremotos", layout="wide")
 
-st.title("🌍 Dashboard Terremotos")
+st.title("♿ Dashboard Terremotos")
 
 col1, col2, col3 = st.columns(3)
 
