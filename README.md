@@ -3,12 +3,13 @@
 #### ¿Qué problema resuelve?
 * La relacion entre el promedio simce con el año, region, provincia y comuna de donde se rindio el examen.
 #### ¿A quién está dirigido?
-* Para estudiantes de enseñanza basica y media.
+* Enseñanza basica y media.
 #### ¿Cuál es el propósito principal?
 * Medir los resultados Simce.
 #### Tecnologías o Lenguajes Utilizados:
 #### Python 3.13
 #### Visual Studio Code
+#### Jupyter Lab
 
 # Instrucciones para ejecutar el proyecto:
 git clone https://github.com/ExequielOlivares/Proyecto_Python_Streamlit
@@ -16,7 +17,7 @@ git clone https://github.com/ExequielOlivares/Proyecto_Python_Streamlit
 # Librerias utilizadas:
 * Pandas
 * Streamlit
-* matplotlib.pyplot
+* matplotlib
 
 # Entrar a la carpeta del proyecto
 cd ../Proyecto_Python_Streamlit
@@ -24,10 +25,10 @@ cd ../Proyecto_Python_Streamlit
 # Ejecutar 
 https://proyecto-simce.streamlit.app/
 
-Autores:
-Lucas Salvo.
-Cristobal Riquelme.
-Exequiel Olivares.
+# Autores: (GitHub)
+* LSalvoGodoy 
+* CRiquelmeMillavil
+* ExequielOlivares
 
 Estado del proyecto: Terminado
 

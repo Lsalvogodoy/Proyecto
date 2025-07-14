@@ -78,23 +78,30 @@ if not df_comuna.empty:
 else:
     st.info("No hay datos para la selección actual.")
 
+df_region = df[df["region"]==region_sel]
+max_leng = df_region[df_region["lenguaje"] == df_region["lenguaje"].max()]
+max_leng_valor = list(max_leng["lenguaje"])[0]
+max_leng_comuna = list(max_leng["comuna"])[0]
+max_leng_agno = list(max_leng["agno"])[0]
 
-if not df_comuna.empty:
-    max_leng = df_comuna['lenguaje'].max()
-    min_leng = df_comuna['lenguaje'].min()
-    agno_max_leng = df_comuna.loc[df_comuna['lenguaje'].idxmax(), 'agno']
-    agno_min_leng = df_comuna.loc[df_comuna['lenguaje'].idxmin(), 'agno']
-else:
-    max_leng = min_leng = agno_max_leng = agno_min_leng = "N/A"
 
-if not df_comuna.empty:
-    max_mat = df_comuna['matematicas'].max()
-    min_mat = df_comuna['matematicas'].min()
-    agno_max_mat = df_comuna.loc[df_comuna['matematicas'].idxmax(), 'agno']
-    agno_min_mat = df_comuna.loc[df_comuna['matematicas'].idxmin(), 'agno']
-else:
-    max_mat = min_mat = agno_max_mat = agno_min_mat = "N/A"
+min_leng = df_region[df_region["lenguaje"] == df_region["lenguaje"].min()]
+min_leng_valor = list(min_leng["lenguaje"])[0]
+min_leng_comuna = list(min_leng["comuna"])[0]
+min_leng_agno = list(min_leng["agno"])[0]
 
+max_mat = df_region[df_region["matematicas"] == df_region["matematicas"].max()]
+max_mat_valor = list(max_mat["matematicas"])[0]
+max_mat_comuna = list(max_mat["comuna"])[0]
+max_mat_agno = list(max_mat["agno"])[0]
+
+min_mat = df_region[df_region["matematicas"] == df_region["matematicas"].min()]
+min_mat_valor = list(min_mat["matematicas"])[0]
+min_mat_comuna = list(min_mat["comuna"])[0]
+min_mat_agno = list(min_mat["agno"])[0]
+
+
+st.subheader(f"Metricas regionales: {region_sel}")
 colt1, colt2 = st.columns(2)
 colt1.markdown("<h3 style='text-align: center;'>Lenguaje</h3>", unsafe_allow_html=True)
 colt2.markdown("<h3 style='text-align: center;'>Matematicas</h3>", unsafe_allow_html=True)
@@ -102,8 +109,8 @@ colt2.markdown("<h3 style='text-align: center;'>Matematicas</h3>", unsafe_allow_
 col1, col2, col3, col4 = st.columns(4)
 
 
-col1.metric(f"Año: {agno_max_leng}", max_leng, f"Comuna: {comuna_sel}")
-col2.metric(f"Año: {agno_min_leng}", min_leng, f"-Comuna: {comuna_sel}")
-col3.metric(f"Año: {agno_max_mat}", max_mat, f"Comuna: {comuna_sel}")
-col4.metric(f"Año: {agno_min_mat}", min_mat, f"-Comuna: {comuna_sel}")
+col1.metric(f"Año: {max_leng_agno}", max_leng_valor, f"Comuna: {max_leng_comuna}")
+col2.metric(f"Año: {min_leng_agno}", min_leng_valor, f"-Comuna: {min_leng_comuna}")
+col3.metric(f"Año: {max_mat_agno}", max_mat_valor, f"Comuna: {max_mat_comuna}")
+col4.metric(f"Año: {min_mat_agno}", min_mat_valor, f"-Comuna: {min_mat_comuna}")
 
